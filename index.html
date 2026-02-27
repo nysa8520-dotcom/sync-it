@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Sync It</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body {
+  font-family: "Comic Sans MS", cursive;
+  background: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+  width: 70%;
+  border-radius: 10px;
+}
+
+button {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+}
+
+li {
+  background: #f2f2f2;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  list-style: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Sync It</h1>
+
+<h2>To Do List</h2>
+
+<input id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+
+<ul id="taskList"></ul>
+
+<h2>AI Planner Chat</h2>
+
+<input id="chatInput" placeholder="Ask AI">
+<button onclick="sendMessage()">Send</button>
+
+<ul id="chatList"></ul>
+
+<script>
+
+function addTask(){
+
+let input=document.getElementById("taskInput");
+
+if(input.value==="") return;
+
+let li=document.createElement("li");
+
+li.textContent=input.value;
+
+document.getElementById("taskList").appendChild(li);
+
+input.value="";
+
+}
+
+function sendMessage(){
+
+let input=document.getElementById("chatInput");
+
+if(input.value==="") return;
+
+let user=document.createElement("li");
+
+user.textContent="You: "+input.value;
+
+document.getElementById("chatList").appendChild(user);
+
+let ai=document.createElement("li");
+
+ai.textContent="AI: I'll help you plan that!";
+
+document.getElementById("chatList").appendChild(ai);
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
